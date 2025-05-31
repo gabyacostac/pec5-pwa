@@ -1,1 +1,10 @@
-<p>artwork-list works!</p>
+<div *ngIf="artworks">
+  <h1>Artworks</h1>
+  <ul>
+    <li *ngFor="let artwork of artworks">
+      <a [routerLink]="['/artwork', artwork.id]">
+        {{ artwork.id }} - {{ artwork.title }}
+      </a>
+    </li>
+  </ul>
+</div>
