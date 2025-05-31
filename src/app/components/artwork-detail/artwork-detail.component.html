@@ -1,1 +1,9 @@
-<p>artwork-detail works!</p>
+<button [routerLink]="'/'">Back</button>
+<div>
+  <h1>{{ artwork.title }}</h1>
+  <h2>{{ artwork.artist_display }} - {{ artwork.date_display }}</h2>
+  <img
+    src="{{ artwork.iiif_url }}/{{ artwork.image_id }}/full/843,/0/default.jpg"
+    alt="Artwork image"
+  />
+</div>
