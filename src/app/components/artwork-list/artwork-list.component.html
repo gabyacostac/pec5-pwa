@@ -16,7 +16,10 @@
     </div>
   </div>
 
-  <div [ngClass]="{ 'grid-view': !isList, 'list-view': isList }">
+  <div
+    [ngClass]="{ 'grid-view': !isList, 'list-view': isList }"
+    [@fadeInUp]="artworks.length"
+  >
     <div *ngFor="let artwork of artworks">
       <mat-card class="card">
         <img

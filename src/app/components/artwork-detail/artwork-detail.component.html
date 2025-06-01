@@ -1,13 +1,64 @@
-<div class="container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="container" *ngIf="!isLoading">
   <div class="detail-header">
     <h1>muse.um</h1>
     <div class="view-buttons">
       <button [routerLink]="'/'" mat-flat-button>Back</button>
     </div>
   </div>
-  <div *ngIf="artwork">
-    <h1>{{ artwork.title }}</h1>
-    <h2>{{ artwork.artist_title }} - {{ artwork.date_display }}</h2>
-    <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
+  <div [@fadeInUp]="artwork">
+    <div *ngIf="artwork">
+      <mat-card class="card">
+        <h2>{{ artwork.title }}</h2>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            (click)="toggleShowDetails()"
+            *ngIf="!showDetails"
+          >
+            Show Details
+          </button>
+          <button
+            mat-raised-button
+            (click)="toggleShowDetails()"
+            *ngIf="showDetails"
+          >
+            Hide Details
+          </button>
+        </mat-card-actions>
+
+        <mat-card-content *ngIf="showDetails">
+          <mat-tab-group class="tab-group" dynamicHeight>
+            <mat-tab label="Image">
+              <div class="tab-content">
+                <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
+              </div>
+            </mat-tab>
+            <mat-tab label="Details">
+              <div class="tab-content">
+                <p><strong>Artist:</strong> {{ artwork.artist_title }}</p>
+                <p><strong>Date:</strong> {{ artwork.date_display }}</p>
+                <p><strong>Description:</strong></p>
+                <div [innerHTML]="artwork.description"></div>
+                <div>
+                  <div>
+                    <strong>Categories:</strong>
+                    <mat-chip-set
+                      class="category-tags"
+                      aria-label="Artwork categories"
+                    >
+                      <mat-chip
+                        *ngFor="let category of artwork.category_titles"
+                        >{{ category }}</mat-chip
+                      >
+                    </mat-chip-set>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

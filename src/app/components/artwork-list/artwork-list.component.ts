@@ -1,3 +1,11 @@
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Artwork } from '../../models/artwork.interface';
 import { MuseumService } from '../../services/museum.service';
@@ -7,6 +15,27 @@ import { MuseumService } from '../../services/museum.service';
   standalone: false,
   templateUrl: './artwork-list.component.html',
   styleUrl: './artwork-list.component.css',
+  animations: [
+    trigger('fadeInUp', [
+      transition('* <=> *', [
+        query(':enter', [style({ transform: 'translateY(5%)', opacity: 0 })], {
+          optional: true,
+        }),
+        query(
+          ':enter',
+          [
+            stagger('100ms', [
+              animate(
+                '500ms ease-in-out',
+                style({ transform: 'translateY(0)', opacity: 1 })
+              ),
+            ]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ArtworkListComponent implements OnInit {
   artworks: Artwork[] = [];

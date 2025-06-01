@@ -1,3 +1,11 @@
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Artwork } from '../../models/artwork.interface';
@@ -8,10 +16,33 @@ import { MuseumService } from '../../services/museum.service';
   standalone: false,
   templateUrl: './artwork-detail.component.html',
   styleUrl: './artwork-detail.component.css',
+  animations: [
+    trigger('fadeInUp', [
+      transition('* <=> *', [
+        query(':enter', [style({ transform: 'translateY(5%)', opacity: 0 })], {
+          optional: true,
+        }),
+        query(
+          ':enter',
+          [
+            stagger('100ms', [
+              animate(
+                '500ms ease-in-out',
+                style({ transform: 'translateY(0)', opacity: 1 })
+              ),
+            ]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ArtworkDetailComponent implements OnInit {
   artwork!: Artwork;
   image_url!: string;
+  isLoading: boolean = false;
+  showDetails: boolean = false;
 
   constructor(
     private museumService: MuseumService,
@@ -22,6 +53,7 @@ export class ArtworkDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     const identifier = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(identifier);
     if (identifier) {
@@ -33,6 +65,7 @@ export class ArtworkDetailComponent implements OnInit {
         console.log('artwork ->', artwork);
         console.log('artwork.data ->', artwork.data);
 
+        this.isLoading = false;
         this.artwork = artwork.data;
         this.image_url = artwork.config.iiif_url;
         this.artwork.iiif_url =
@@ -46,5 +79,9 @@ export class ArtworkDetailComponent implements OnInit {
         return;
       });
     }
+  }
+
+  toggleShowDetails() {
+    this.showDetails = !this.showDetails;
   }
 }
