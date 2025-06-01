@@ -12,11 +12,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CardComponent } from './shared/components/card/card.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { GridComponent } from './shared/components/grid/grid.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ArtworkDetailComponent,
     SpinnerComponent,
     FooterComponent,
+    CardComponent,
+    GridComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +44,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatTableModule,
   ],
   providers: [[provideHttpClient(withFetch())]],
   bootstrap: [AppComponent],
