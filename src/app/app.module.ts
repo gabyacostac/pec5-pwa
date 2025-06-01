@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './shared/components/card/card.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { GridComponent } from './shared/components/grid/grid.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,12 @@ import { GridComponent } from './shared/components/grid/grid.component';
     BrowserAnimationsModule,
     MatTabsModule,
     MatTableModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [[provideHttpClient(withFetch())]],
   bootstrap: [AppComponent],
