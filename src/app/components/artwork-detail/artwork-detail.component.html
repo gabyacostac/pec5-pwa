@@ -1,6 +1,13 @@
-<button [routerLink]="'/'">Back</button>
-<div *ngIf="artwork">
-  <h1>{{ artwork.title }}</h1>
-  <h2>{{ artwork.artist_display }} - {{ artwork.date_display }}</h2>
-  <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
+<div class="container">
+  <div class="detail-header">
+    <h1>muse.um</h1>
+    <div class="view-buttons">
+      <button [routerLink]="'/'" mat-flat-button>Back</button>
+    </div>
+  </div>
+  <div *ngIf="artwork">
+    <h1>{{ artwork.title }}</h1>
+    <h2>{{ artwork.artist_title }} - {{ artwork.date_display }}</h2>
+    <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
+  </div>
 </div>

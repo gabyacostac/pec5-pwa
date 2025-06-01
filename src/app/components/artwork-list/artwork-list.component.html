@@ -1,10 +1,42 @@
-<div *ngIf="artworks">
-  <h1>Artworks</h1>
-  <ul>
-    <li *ngFor="let artwork of artworks">
-      <a [routerLink]="['/artwork', artwork.id]">
-        {{ artwork.id }} - {{ artwork.title }}
-      </a>
-    </li>
-  </ul>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="container" *ngIf="!isLoading">
+  <div class="list-header">
+    <h1>muse.um</h1>
+    <div class="view-buttons">
+      <button (click)="isList = false" mat-icon-button>
+        <mat-icon color="primary" class="material-symbols-rounded"
+          >grid_view</mat-icon
+        >
+      </button>
+      <button (click)="isList = true" mat-icon-button>
+        <mat-icon color="primary" class="material-symbols-rounded"
+          >table_rows</mat-icon
+        >
+      </button>
+    </div>
+  </div>
+
+  <div [ngClass]="{ 'grid-view': !isList, 'list-view': isList }">
+    <div *ngFor="let artwork of artworks">
+      <mat-card class="card">
+        <img
+          class="card-image"
+          mat-card-image
+          src="{{ artwork.iiif_url }}"
+          alt="Photo of {{ artwork.title }}"
+        />
+        <mat-card-content>
+          <div>
+            <h2>{{ artwork.title }}</h2>
+            <h3>{{ artwork.artist_title }} | {{ artwork.date_display }}</h3>
+          </div>
+          <mat-card-actions>
+            <button [routerLink]="['/artwork', artwork.id]" mat-flat-button>
+              View
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>

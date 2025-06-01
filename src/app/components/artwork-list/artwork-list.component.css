@@ -1,0 +1,64 @@
+.list-view .card {
+  flex-direction: row;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  width: 100%;
+  height: 200px;
+  min-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.list-view .card-image {
+  width: 200px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 100vw;
+  gap: 0.5rem;
+}
+
+.grid-view .card {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  min-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.grid-view .card-image {
+  height: 300px;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.view-buttons {
+  display: flex;
+  align-items: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card-actions {
+  padding: 0;
+}

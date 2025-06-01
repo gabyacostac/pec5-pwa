@@ -11,16 +11,19 @@ import { MuseumService } from '../../services/museum.service';
 export class ArtworkListComponent implements OnInit {
   artworks: Artwork[] = [];
   iiif_url: string = '';
-  isTable: boolean = true;
+  isList: boolean = true;
+  isLoading: boolean = false;
 
   constructor(private museumService: MuseumService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.museumService.getAllArtworks(20).subscribe((artworksPage) => {
       console.log('this.artworks ->', this.artworks);
       console.log('artworksPage ->', artworksPage);
       console.log('artworksPage.data ->', artworksPage.data);
 
+      this.isLoading = false;
       this.artworks = artworksPage.data;
       this.iiif_url = artworksPage.config.iiif_url;
       this.artworks.forEach((artwork) => {
@@ -30,5 +33,9 @@ export class ArtworkListComponent implements OnInit {
 
       console.log('this.artworks ->', this.artworks);
     });
+  }
+
+  toggleView(): void {
+    this.isList = !this.isList;
   }
 }

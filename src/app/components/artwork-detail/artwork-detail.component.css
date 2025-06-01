@@ -1,3 +1,14 @@
 img {
   width: 100%;
 }
+
+.detail-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.view-buttons {
+  display: flex;
+  align-items: center;
+}
