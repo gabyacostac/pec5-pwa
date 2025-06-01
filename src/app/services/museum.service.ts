@@ -14,18 +14,20 @@ export class MuseumService {
   }
 
   getAllArtworks(limit: number): Observable<ArtworksPage> {
-    this.api_url +=
-      '?limit=' +
-      limit +
-      '&fields=id,title,artist_display,date_display,image_id,category_titles';
-    return this.http.get<ArtworksPage>(this.api_url);
+    return this.http.get<ArtworksPage>(
+      this.api_url +
+        '?limit=' +
+        limit +
+        '&fields=id,title,artist_display,date_display,image_id,category_titles'
+    );
   }
 
   getArtworkById(id: string): Observable<ArtworkData> {
-    this.api_url +=
-      '/' +
-      id +
-      '?fields=id,title,artist_display,date_display,image_id,category_titles';
-    return this.http.get<ArtworkData>(this.api_url);
+    return this.http.get<ArtworkData>(
+      this.api_url +
+        '/' +
+        id +
+        '?fields=id,title,artist_display,date_display,image_id,category_titles'
+    );
   }
 }
