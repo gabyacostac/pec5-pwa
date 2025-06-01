@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { ArtworkDetailComponent } from './components/artwork-detail/artwork-detail.component';
 import { ArtworkListComponent } from './components/artwork-list/artwork-list.component';
 
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [AppComponent, ArtworkListComponent, ArtworkDetailComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, MatCardModule],
   providers: [[provideHttpClient(withFetch())]],
   bootstrap: [AppComponent],
 })
