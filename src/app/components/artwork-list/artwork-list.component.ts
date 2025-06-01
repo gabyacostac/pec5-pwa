@@ -40,7 +40,7 @@ import { MuseumService } from '../../services/museum.service';
 export class ArtworkListComponent implements OnInit {
   artworks: Artwork[] = [];
   iiif_url: string = '';
-  isList: boolean = true;
+  isTable: boolean = true;
   isLoading: boolean = false;
 
   constructor(private museumService: MuseumService) {}
@@ -65,6 +65,6 @@ export class ArtworkListComponent implements OnInit {
   }
 
   toggleView(): void {
-    this.isList = !this.isList;
+    this.isTable = !this.isTable;
   }
 }
