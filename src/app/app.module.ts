@@ -12,7 +12,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
     ArtworkListComponent,
     ArtworkDetailComponent,
     SpinnerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,8 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
     MatIconModule,
     MatChipsModule,
     MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
   ],
   providers: [[provideHttpClient(withFetch())]],
   bootstrap: [AppComponent],
