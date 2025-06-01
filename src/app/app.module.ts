@@ -21,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './shared/components/card/card.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { GridComponent } from './shared/components/grid/grid.component';
-import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { HeaderComponent } from './shared/components/header/header.component';
     FooterComponent,
     CardComponent,
     GridComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
