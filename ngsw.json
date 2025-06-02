@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1748824367133,
+  "index": "/pec5-pwa/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pec5-pwa/favicon.ico",
+        "/pec5-pwa/index.html",
+        "/pec5-pwa/main-UI55SEGV.js",
+        "/pec5-pwa/manifest.webmanifest",
+        "/pec5-pwa/polyfills-B6TNHZQ6.js",
+        "/pec5-pwa/styles-H4UABQED.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pec5-pwa/icons/icon-128x128.png",
+        "/pec5-pwa/icons/icon-144x144.png",
+        "/pec5-pwa/icons/icon-152x152.png",
+        "/pec5-pwa/icons/icon-192x192.png",
+        "/pec5-pwa/icons/icon-384x384.png",
+        "/pec5-pwa/icons/icon-512x512.png",
+        "/pec5-pwa/icons/icon-72x72.png",
+        "/pec5-pwa/icons/icon-96x96.png"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=Material\\+Symbols\\+Rounded:opsz,wght,FILL,GRAD@20\\.\\.48,100\\.\\.700,0\\.\\.1,-50\\.\\.200&amp;icon_names=grid_view,table_rows"
+      ]
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "artworks-api",
+      "patterns": [
+        "https:\\/\\/api\\.artic\\.edu\\/.*",
+        "https:\\/\\/www\\.artic\\.edu\\/iiif\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 10,
+      "maxAge": 3600000,
+      "timeoutMs": 1000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/pec5-pwa/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/pec5-pwa/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/pec5-pwa/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/pec5-pwa/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/pec5-pwa/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/pec5-pwa/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/pec5-pwa/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/pec5-pwa/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/pec5-pwa/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/pec5-pwa/index.html": "c5c4e65312a34daefd609b720da6c96e85ad2e15",
+    "/pec5-pwa/main-UI55SEGV.js": "97c88cd6ecba668a25be8fe9ab8879c77308e49e",
+    "/pec5-pwa/manifest.webmanifest": "9c831f69eae3e78c4232373a1b0e02c00980bb6d",
+    "/pec5-pwa/polyfills-B6TNHZQ6.js": "bf76ac291d7f51c1139b7edcf86b359a30c08c64",
+    "/pec5-pwa/styles-H4UABQED.css": "91f96bd3ec8872c97572e34fe0540016756ece7b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
