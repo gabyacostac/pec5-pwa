@@ -48,10 +48,6 @@ export class ArtworkListComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.museumService.getAllArtworks(20).subscribe((artworksPage) => {
-      console.log('this.artworks ->', this.artworks);
-      console.log('artworksPage ->', artworksPage);
-      console.log('artworksPage.data ->', artworksPage.data);
-
       this.isLoading = false;
       this.artworks = artworksPage.data;
       this.iiif_url = artworksPage.config.iiif_url;
@@ -59,8 +55,6 @@ export class ArtworkListComponent implements OnInit {
         artwork.iiif_url =
           this.iiif_url + '/' + artwork.image_id + '/full/400,/0/default.jpg';
       });
-
-      console.log('this.artworks ->', this.artworks);
     });
   }
 

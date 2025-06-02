@@ -55,16 +55,11 @@ export class ArtworkDetailComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     const identifier = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(identifier);
     if (identifier) {
       this.museumService.getArtworkById(identifier).subscribe((artwork) => {
         if (!artwork) {
           return this.router.navigateByUrl('/');
         }
-        console.log('this.artwork ->', this.artwork);
-        console.log('artwork ->', artwork);
-        console.log('artwork.data ->', artwork.data);
-
         this.isLoading = false;
         this.artwork = artwork.data;
         this.image_url = artwork.config.iiif_url;
@@ -73,8 +68,6 @@ export class ArtworkDetailComponent implements OnInit {
           '/' +
           this.artwork.image_id +
           '/full/600,/0/default.jpg';
-
-        console.log('this.artwork ->', this.artwork);
 
         return;
       });
