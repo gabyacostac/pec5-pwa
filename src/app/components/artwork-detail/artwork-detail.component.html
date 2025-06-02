@@ -3,7 +3,9 @@
   <div class="detail-header">
     <h1>muse.um</h1>
     <div class="view-buttons">
-      <button [routerLink]="'/'" mat-flat-button>Back</button>
+      <button [routerLink]="'/'" mat-flat-button aria-label="Back button">
+        Back
+      </button>
     </div>
   </div>
   <div [@fadeInUp]="artwork">
@@ -15,6 +17,7 @@
             mat-raised-button
             (click)="toggleShowDetails()"
             *ngIf="!showDetails"
+            aria-label="Show details button"
           >
             Show Details
           </button>
@@ -22,6 +25,7 @@
             mat-raised-button
             (click)="toggleShowDetails()"
             *ngIf="showDetails"
+            aria-label="Hide details button"
           >
             Hide Details
           </button>

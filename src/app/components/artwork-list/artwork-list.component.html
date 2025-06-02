@@ -3,12 +3,20 @@
   <div class="list-header">
     <h1>muse.um</h1>
     <div class="view-buttons">
-      <button (click)="isTable = false" mat-icon-button>
+      <button
+        (click)="isTable = false"
+        mat-icon-button
+        aria-label="Grid view button"
+      >
         <mat-icon color="primary" class="material-symbols-rounded"
           >grid_view</mat-icon
         >
       </button>
-      <button (click)="isTable = true" mat-icon-button>
+      <button
+        (click)="isTable = true"
+        mat-icon-button
+        aria-label="Table view button"
+      >
         <mat-icon color="primary" class="material-symbols-rounded"
           >table_rows</mat-icon
         >

@@ -12,7 +12,11 @@
       <h3>{{ artwork.artist_title }} | {{ artwork.date_display }}</h3>
     </div>
     <mat-card-actions>
-      <button [routerLink]="['/artwork', artwork.id]" mat-flat-button>
+      <button
+        [routerLink]="['/artwork', artwork.id]"
+        mat-flat-button
+        aria-label="View artwork button"
+      >
         View
       </button>
     </mat-card-actions>
