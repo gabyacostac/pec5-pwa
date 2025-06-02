@@ -1,5 +1,6 @@
 <mat-card class="card">
   <img
+    *ngIf="artwork.image_id"
     class="card-image"
     mat-card-image
     src="{{ artwork.iiif_url }}"

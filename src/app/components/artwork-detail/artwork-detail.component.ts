@@ -72,7 +72,7 @@ export class ArtworkDetailComponent implements OnInit {
           this.image_url +
           '/' +
           this.artwork.image_id +
-          '/full/843,/0/default.jpg';
+          '/full/600,/0/default.jpg';
 
         console.log('this.artwork ->', this.artwork);
 

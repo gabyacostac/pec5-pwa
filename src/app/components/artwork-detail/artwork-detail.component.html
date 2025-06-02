@@ -29,8 +29,8 @@
 
         <mat-card-content *ngIf="showDetails">
           <mat-tab-group class="tab-group" dynamicHeight>
-            <mat-tab label="Image">
-              <div class="tab-content">
+            <mat-tab label="Image" *ngIf="artwork.image_id">
+              <div class="tab-content image-tab">
                 <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
               </div>
             </mat-tab>
@@ -38,8 +38,11 @@
               <div class="tab-content">
                 <p><strong>Artist:</strong> {{ artwork.artist_title }}</p>
                 <p><strong>Date:</strong> {{ artwork.date_display }}</p>
-                <p><strong>Description:</strong></p>
-                <div [innerHTML]="artwork.description"></div>
+                <p *ngIf="artwork.description"><strong>Description:</strong></p>
+                <div
+                  *ngIf="artwork.description"
+                  [innerHTML]="artwork.description"
+                ></div>
                 <div>
                   <div>
                     <strong>Categories:</strong>
