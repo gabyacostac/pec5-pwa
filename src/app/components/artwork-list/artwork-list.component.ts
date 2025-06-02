@@ -57,7 +57,7 @@ export class ArtworkListComponent implements OnInit {
       this.iiif_url = artworksPage.config.iiif_url;
       this.artworks.forEach((artwork) => {
         artwork.iiif_url =
-          this.iiif_url + '/' + artwork.image_id + '/full/600,/0/default.jpg';
+          this.iiif_url + '/' + artwork.image_id + '/full/400,/0/default.jpg';
       });
 
       console.log('this.artworks ->', this.artworks);

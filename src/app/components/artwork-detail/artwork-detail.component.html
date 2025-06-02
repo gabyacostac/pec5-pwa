@@ -31,7 +31,10 @@
           <mat-tab-group class="tab-group" dynamicHeight>
             <mat-tab label="Image" *ngIf="artwork.image_id">
               <div class="tab-content image-tab">
-                <img src="{{ artwork.iiif_url }}" alt="Artwork image" />
+                <img
+                  src="{{ artwork.iiif_url }}"
+                  alt="Photo of {{ artwork.title }}"
+                />
               </div>
             </mat-tab>
             <mat-tab label="Details">
