@@ -23,7 +23,22 @@
       "resources": {
         "files": [
           "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;icon_names=grid_view,table_rows"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "artworks-api",
+      "urls": ["https://api.artic.edu/**", "https://www.artic.edu/iiif/**"],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "1h",
+        "timeout": "1s",
+        "strategy": "freshness"
       }
     }
   ]
